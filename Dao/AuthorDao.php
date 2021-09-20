@@ -46,7 +46,7 @@ class AuthorDao
 
 
 
-                if ($authorName ===  $author_data_name_bdd) {
+                if ($authorName =  $author_data_name_bdd) {
 
                     echo 'L\'autheur existe déjà';
                 } else {

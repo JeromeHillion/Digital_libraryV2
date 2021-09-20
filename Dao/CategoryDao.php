@@ -32,26 +32,31 @@ class CategoryDao
             $dataApi = new DataApi();
             $data = $dataApi->getData();
 
-
-
-            /*exit();*/
             foreach ($data as $category_data) {
                 $category = new Category();
                 $category->setName($category_data->category->name);
                 $category_name = $category->getName();
+
+                $exist = false;
                 $req_select = $bdd->prepare("SELECT  name FROM category");
                 $req_select->execute();
+
                 $category_data_bdd = $req_select->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($category_data_bdd as $data_name_bdd) {
-                    $category_data_name_bdd=$data_name_bdd['name'];
+                    $category_data_name_bdd = $data_name_bdd['name'];
                     echo '<pre>';
-                    var_dump($category_data_name_bdd);
+                    /*var_dump($category_data_name_bdd);*/
                     echo '</pre>';
+
+                    if ($category_name == $category_data_name_bdd) {
+                        /*var_dump($category_data_name_bdd);*/
+                        echo 'La catégorie existe déjà';
+                        $exist = true;
+                        break;
+
+                    }
                 }
-                if ($category_name ===  $category_data_name_bdd) {
-                    var_dump($category_data_name_bdd);
-                    echo 'La catégorie existe déjà';
-                } else {
+                if (!$exist) {
                     $req_add = $bdd->prepare("INSERT INTO category(
                      name) VALUE (:name)");
                     $req_add->bindParam(':name', $category_name);
@@ -66,12 +71,7 @@ class CategoryDao
                 }
 
 
-
-                /*echo '<pre>';
-                var_dump($category_data->category->name);
-                echo '</pre>';*/
             }
-
         } catch (Exception $e) {
             die('Erreur : ' . $e->getMessage());
         }
