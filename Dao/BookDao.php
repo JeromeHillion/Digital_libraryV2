@@ -1,36 +1,45 @@
 <?php
-include("../Service/DataApi.php");
-include("../Model/Book.php");
 
-/*$books = new DataApi();*/
+namespace Dao;
+
+use BddConnection;
+use DateTime;
+use Exception;
+use PDO;
+use Service\DataApi;
 
 
 class BookDao
 {
 
-
-    public function addBooks()
+    /**
+     * @throws Exception
+     */
+    public static function addBooks()
     {
-        try {
-            $bdd = new PDO('mysql:host=localhost;dbname=digital_library;charset=utf8', 'root', '');
-            echo "Connexion à la base de donnée réussi !";
+        //Connexion à la base de donnée
+        $bdd = BddConnection::connection();
 
-            $dataApi = new DataApi();
-            $data = $dataApi->getData();
-
-            foreach ($data as $bookData) {
-                $book = new Book();
+        //On récupère les données du JSON
+        $dataApi = DataApi::getData();
 
 
-                $book->setName($bookData->name);
-                $book->setPublication($bookData->publication);
-                $book->setCover($bookData->cover);
-                $book->setCover($bookData->cover);
-                $book->setSummary($bookData->summary);
-                /*exit();*/
-                exit();
+        foreach ($dataApi as $bookData) {
+
+            $name = $bookData->name;
+            $publication = $bookData->publication;
+            $cover = $bookData->cover;
+            $summary = $bookData->summary;
+            $author = $bookData->author->name;
+            $author_id = self::findAuthorById($author);
+            $category = $bookData->category->name;
+            $category_id = self::findCategoryById($category);
+
+            //Si l'autheur et la  catégorie existent on ajoute dans la base de donnée
+            if (self::findAuthorById($author) AND self::findCategoryById($category)) {
+
                 $req_add = $bdd->prepare("
-                  INSERT INTO book(name, publication, cover, summary, author_id, category_id)
+                  INSERT INTO books(name, publication, cover, summary,author_id,category_id )
                   VALUES (:name,:publication,:cover,:summary,:author_id,:category_id)
                 ");
                 $req_add->bindParam(':name', $name);
@@ -40,27 +49,45 @@ class BookDao
                 $req_add->bindParam(':author_id', $author_id);
                 $req_add->bindParam(':category_id', $category_id);
 
-
-                $name = $book->getName();
-                $publication = $book->getPublication();
-                $cover = $book->getCover();
-                $summary = $book->getSummary();
-
-
                 $req_add->execute();
 
+               echo "<pre>";
+               echo "livre ajouté dans la table";
+               echo "</pre>";
+            } else {
+                echo 'L\'id n\'existe pas';
             }
-        } catch
-        (PDOException $e) {
-            echo "Erreur : " . $e->getMessage();
+
         }
 
+    }
 
+    public static function findAuthorById(string $author)
+    {
+
+        //Connexion à la base de donnée
+        $bdd = BddConnection::connection();
+
+        $req = $bdd->prepare("select id  from authors where name= :author");
+        $req->bindParam(':author', $author);
+        $req->execute();
+
+        return $req->fetch(PDO::FETCH_ASSOC)["id"];
+    }
+
+    public static function findCategoryById(string $category)
+    {
+
+        //Connexion à la base de donnée
+        $bdd = BddConnection::connection();
+
+        $req = $bdd->prepare("select id  from categories where name= :category");
+        $req->bindParam(':category', $category);
+        $req->execute();
+
+        return $req->fetch(PDO::FETCH_ASSOC)["id"];
     }
 
 }
 
-$bookDao = new BookDao();
-/*$bookDao->createTable();*/
-$bookDao->addBooks();
 

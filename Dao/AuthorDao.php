@@ -24,7 +24,7 @@ class AuthorDao
             $author_name = $author_data->author->name;
 
             if (!self::authorExist($author_name)) {
-                $req_add = $bdd->prepare("INSERT INTO author(
+                $req_add = $bdd->prepare("INSERT INTO authors(
                      name) VALUE (:name)");
                 $req_add->bindParam(':name', $author_name);
                 $req_add->execute();
@@ -45,7 +45,7 @@ class AuthorDao
     public static function authorExist(string $author_name)
     {
         $bdd = BddConnection::connection();
-        $req = $bdd->prepare("select count(*)  from author where name= :author_name");
+        $req = $bdd->prepare("select count(*)  from authors where name= :author_name");
         $req->bindParam(':author_name', $author_name);
         $req->execute();
 

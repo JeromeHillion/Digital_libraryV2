@@ -28,7 +28,7 @@ class CategoryDao
 
             //Si elle n'existe pas on l'ajoute dans la base de donnée
             if (!self::categoryExist($category_name)) {
-                $req_add = $bdd->prepare("INSERT INTO category(
+                $req_add = $bdd->prepare("INSERT INTO categories(
                      name) VALUE (:name)");
                 $req_add->bindParam(':name', $category_name);
                 $req_add->execute();
@@ -43,7 +43,7 @@ class CategoryDao
     public static function categoryExist(string $category_name)
     {
         $bdd = BddConnection::connection();
-        $req = $bdd->prepare("select count(*)  from category where name= :category_name");
+        $req = $bdd->prepare("select count(*)  from categories where name= :category_name");
         $req->bindParam(':category_name', $category_name);
         $req->execute();
 
