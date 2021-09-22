@@ -1,13 +1,34 @@
 <?php
 
+namespace Model;
+
 class Book
 {
-protected $name;
-protected $publication;
-protected $cover;
-protected $summary;
-protected $author;
-protected $category;
+protected string $name;
+protected  string $publication;
+protected string $cover;
+protected  string $summary;
+protected int $author_id;
+protected int $category_id;
+
+    /**
+     * @param string $name
+     * @param string $publication
+     * @param string $cover
+     * @param string $summary
+     * @param int $author_id
+     * @param int $category_id
+     */
+    public function __construct(string $name, string $publication, string $cover, string $summary, int $author_id, int $category_id)
+    {
+        $this->name = $name;
+        $this->publication = $publication;
+        $this->cover = $cover;
+        $this->summary = $summary;
+        $this->author_id = $author_id;
+        $this->category_id = $category_id;
+    }
+
 
     /**
      * @return mixed
@@ -74,36 +95,37 @@ protected $category;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getAuthor()
+    public function getAuthorId(): int
     {
-        return $this->author;
+        return $this->author_id;
     }
 
     /**
-     * @param mixed $author
+     * @param int $author_id
      */
-    public function setAuthor($author)
+    public function setAuthorId(int $author_id): void
     {
-        $this->author = $author;
+        $this->author_id = $author_id;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getCategory()
+    public function getCategoryId(): int
     {
-        return $this->category;
+        return $this->category_id;
     }
 
     /**
-     * @param mixed $category
+     * @param int $category_id
      */
-    public function setCategory($category)
+    public function setCategoryId(int $category_id): void
     {
-        $this->category = $category;
+        $this->category_id = $category_id;
     }
+
 
 
 

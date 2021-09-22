@@ -1,8 +1,19 @@
 <?php
 
+namespace Model;
+
 class Author
 {
-    protected $name;
+    protected string $name;
+
+    /**
+     * @param string $name
+     */
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
+
 
     /**
      * @return mixed

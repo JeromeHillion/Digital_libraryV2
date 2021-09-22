@@ -1,77 +1,58 @@
 <?php
-include("../Service/DataApi.php");
-include("../Model/Author.php");
+
+namespace Dao;
+
+use BddConnection;
+use PDO;
+use Service\DataApi;
+use Model\Author;
+
 class AuthorDao
 {
-    public function createTable()
+
+
+   public static function addAuthor()
     {
-        try {
-            $bdd = new PDO('mysql:host=localhost;dbname=digital_library;charset=utf8', 'root', '');
-            echo "Connexion à la base de donnée réussi !";
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
-        $tableAuthor = "CREATE TABLE author (
-                  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                  name VARCHAR(255) NOT NULL)";
-        $bdd->exec($tableAuthor);
-
-    }
-    
-    function addAuthor(){
-        try {
-            $bdd = new PDO('mysql:host=localhost;dbname=digital_library;charset=utf8', 'root', '');
-            echo "Connexion à la base de donnée réussi !";
-
-            $dataApi = new DataApi();
-            $data = $dataApi->getData();
+        //Connexion à la base de donnée
+        $bdd = BddConnection::connection();
+        //On récupère les données du JSON
+        $dataApi = DataApi::getData();
 
 
+        //On boucle pour récupérer les autheurs
+        foreach ($dataApi as $author_data) {
+            $author_name = $author_data->author->name;
 
-            /*exit();*/
-            foreach ($data as $author_data) {
-                $author = new Author();
-                $author->setName($author_data->author->name);
-                $authorName = $author->getName();
-                $req_select = $bdd->prepare("SELECT  name FROM author");
-                $req_select->execute();
-                $author_data_bdd = $req_select->fetchAll(PDO::FETCH_ASSOC);
-                foreach ($author_data_bdd as $data_name_bdd) {
-                    $author_data_name_bdd=$data_name_bdd['name'];
-                    echo '<pre>';
-                    var_dump($author_data_name_bdd);
-                    echo '</pre>';
-
-                }
-
-
-
-                if ($authorName =  $author_data_name_bdd) {
-
-                    echo 'L\'autheur existe déjà';
-                } else {
-                    $req_add = $bdd->prepare("INSERT INTO author(
+            if (!self::authorExist($author_name)) {
+                $req_add = $bdd->prepare("INSERT INTO author(
                      name) VALUE (:name)");
-                    $req_add->bindParam(':name', $authorName);
-                    $req_add->execute();
+                $req_add->bindParam(':name', $author_name);
+                $req_add->execute();
 
-                    echo '<pre>';
-                    echo "Entrée ajoutée dans la table";
-                    echo '</pre>';
-                    echo '<pre>';
+                echo '<pre>';
+                echo 'L\'autheur : '.$author_name.' à été enregistré !';
+                echo '</pre>';
 
-                    echo '</pre>';
-                }
-
-
+            } else {
+                echo '<pre>';
+                echo 'L\'autheur existe déjà';
+                echo '</pre>';
             }
-
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
         }
+
     }
+
+    public static function authorExist(string $author_name)
+    {
+        $bdd = BddConnection::connection();
+        $req = $bdd->prepare("select count(*)  from author where name= :author_name");
+        $req->bindParam(':author_name', $author_name);
+        $req->execute();
+
+        $resultat = $req->fetch(PDO::FETCH_ASSOC)["count(*)"];
+        return $resultat !== "0";
+    }
+
+
 }
 
-$authorDao = new AuthorDao();
-/*$authorDao->createTable();*/
-$authorDao->addAuthor();

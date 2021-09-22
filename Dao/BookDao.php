@@ -7,25 +7,7 @@ include("../Model/Book.php");
 
 class BookDao
 {
-    public function createTable()
-    {
-        try {
-            $bdd = new PDO('mysql:host=localhost;dbname=digital_library;charset=utf8', 'root', '');
-            echo "Connexion à la base de donnée réussi !";
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
-        $table_book = "CREATE TABLE book (
-                  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                  name VARCHAR(255) NOT NULL,
-                  publication DATE NOT NULL,
-                  cover VARCHAR(255),
-                  summary TEXT NOT NULL ,
-                  author_id INT NOT NULL,
-                  category_id INT NOT NULL)";
-        $bdd->exec($table_book);
 
-    }
 
     public function addBooks()
     {
