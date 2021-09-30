@@ -1,15 +1,16 @@
 <?php
 require_once ("Autoloader.php");
-/*use Dao\CategoryDao;*/
+use Model\Category;
 /*use Dao\AuthorDao;*/
-use Dao\BookDao;
+/*use Dao\BookDao;*/
 
 /*$category_name ="Policier";*/
-/*CategoryDao::addCategories();*/
+
 /*var_dump(CategoryDao::categoryExist($category_name));*/
 
 /*AuthorDao::addAuthor();*/
 
 
+var_dump(\Service\AuthorService::getAuthorIdByName("Michel Bussi"));
 /*$author = "Wendy Delorme";*/
-BookDao::addBooks();
+/*BookDao::addBooks();*/

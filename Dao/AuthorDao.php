@@ -53,6 +53,21 @@ class AuthorDao
         return $resultat !== "0";
     }
 
+    public static function getAuthorIdByName(string $author_name){
+        $bdd = BddConnection::connection();
+        $req = $bdd->prepare("select id from authors where name=:author_name");
+        $req->bindParam(':author_name',  $author_name);
+        $req->execute();
+        return $req->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public static function authorsName(){
+        $bdd = BddConnection::connection();
+        $req = $bdd->prepare("select name from authors");
+        $req->execute();
+
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 }
 

@@ -1,10 +1,11 @@
 <?php
 
+
 namespace Model;
 
 class Category
 {
-protected string $name;
+    protected string $name;
 
     /**
      * @param string $name

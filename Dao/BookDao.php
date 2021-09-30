@@ -26,7 +26,7 @@ class BookDao
 
         foreach ($dataApi as $bookData) {
 
-            $name = $bookData->name;
+            $book_name = $bookData->name;
             $publication = $bookData->publication;
             $cover = $bookData->cover;
             $summary = $bookData->summary;
@@ -35,14 +35,14 @@ class BookDao
             $category = $bookData->category->name;
             $category_id = self::findCategoryById($category);
 
-            //Si l'autheur et la  catégorie existent on ajoute dans la base de donnée
-            if (self::findAuthorById($author) AND self::findCategoryById($category)) {
+            //Si le livre n'existe pas et que l'autheur et la  catégorie existent on ajoute dans la base de donnée
+            if (!self::bookExist($book_name) && self::findAuthorById($author) && self::findCategoryById($category)) {
 
                 $req_add = $bdd->prepare("
                   INSERT INTO books(name, publication, cover, summary,author_id,category_id )
                   VALUES (:name,:publication,:cover,:summary,:author_id,:category_id)
                 ");
-                $req_add->bindParam(':name', $name);
+                $req_add->bindParam(':name', $book_name);
                 $req_add->bindParam(':publication', $publication);
                 $req_add->bindParam(':cover', $cover);
                 $req_add->bindParam(':summary', $summary);
@@ -55,7 +55,7 @@ class BookDao
                echo "livre ajouté dans la table";
                echo "</pre>";
             } else {
-                echo 'L\'id n\'existe pas';
+                echo 'Le livre existe déjà';
             }
 
         }
@@ -86,6 +86,17 @@ class BookDao
         $req->execute();
 
         return $req->fetch(PDO::FETCH_ASSOC)["id"];
+    }
+
+    public static function bookExist(string $book_name)
+    {
+        $bdd = BddConnection::connection();
+        $req = $bdd->prepare("select count(*)  from books where name= :book_name");
+        $req->bindParam(':book_name', $book_name);
+        $req->execute();
+
+        $resultat = $req->fetch(PDO::FETCH_ASSOC)["count(*)"];
+        return $resultat !== "0";
     }
 
 }

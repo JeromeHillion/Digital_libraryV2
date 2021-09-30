@@ -51,4 +51,20 @@ class CategoryDao
         return $resultat !== "0";
     }
 
+    public static function getCategoryIdByName(string $category_name){
+        $bdd = BddConnection::connection();
+        $req = $bdd->prepare("select id from categories where name=:category_name");
+        $req->bindParam(':category_name',  $category_name);
+        $req->execute();
+        return $req->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public static function categoriesName(){
+        $bdd = BddConnection::connection();
+        $req = $bdd->prepare("select name from categories");
+        $req->execute();
+
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
