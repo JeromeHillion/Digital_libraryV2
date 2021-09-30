@@ -99,6 +99,22 @@ class BookDao
         return $resultat !== "0";
     }
 
+    public static function getBookIdByname(string $book_name){
+        $bdd = BddConnection::connection();
+        $req = $bdd->prepare("select id from books where name = :book_name");
+        $req->bindParam(':book_name', $book_name);
+        $req->execute();
+        return $req->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public static function booksName(){
+        $bdd = BddConnection::connection();
+        $req = $bdd->prepare("select name from books");
+        $req->execute();
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+
+}
+
 }
 
 
