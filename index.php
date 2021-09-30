@@ -11,6 +11,6 @@ use Model\Category;
 /*AuthorDao::addAuthor();*/
 
 
-var_dump(\Service\AuthorService::getAuthorIdByName("Michel Bussi"));
+var_dump(\Service\BookService::getBookIdByname("Rien ne t'efface"));
 /*$author = "Wendy Delorme";*/
 /*BookDao::addBooks();*/
