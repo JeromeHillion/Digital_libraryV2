@@ -23,37 +23,56 @@
         <div class="form">
             <h1>Inscription</h1>
             <form id="form">
-
                 <div class="field">
-                    <label for="firstname">Prénom</label><br/>
-                    <input type="text" id="firstname" name="firstname">
+                    <label for="firstname">Prénom</label>
+                    <div class="inputField">
+                        <input type="text" id="firstname" name="firstname">
+                        <img src="../public/images/icons/check.png" id="checkFirstname" class="check" alt="icon check">
+                        <img src="../public/images/icons/multiply.png" id="errorFirstname" class="error" alt="icon error">
+                    </div>
                 </div>
 
+
                 <div class="field">
-                    <label for="username">Nom</label><br/>
-                    <input type="text" id="username" name="username">
+                    <label for="username">Nom</label>
+                    <div class="inputField">
+                        <input type="text" id="username" name="username">
+                        <img src="../public/images/icons/check.png"  class="check" id="checkUsername" alt="icon check">
+                        <img src="../public/images/icons/multiply.png"  class="error" id="errorUsername" alt="icon error">
+                    </div>
                 </div>
 
                 <div class="field">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email">
+                    <div class="inputField">
+                        <input type="email" id="email" name="email">
+                        <img src="../public/images/icons/check.png"  class="check" id="checkEmail" alt="icon check">
+                        <img src="../public/images/icons/multiply.png"  class="error" id="errorEmail" alt="icon error">
+                    </div>
                 </div>
 
                 <div class="field">
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password">
+                    <div class="inputField">
+                        <input type="password" id="password" name="password">
+                        <img src="../public/images/icons/check.png"  class="check" id="checkPassword" alt="icon check">
+                        <img src="../public/images/icons/multiply.png"  class="error" id="errorPassword" alt="icon error">
+                    </div>
                 </div>
 
                 <div class="field">
                     <label for="verif_password">Indiquer votre mot de passe à nouveau</label>
-                    <input type="password" id="verif_password" name="verif_password">
+                    <div class="inputField">
+                        <input type="password" id="verifPassword"  name="verifPassword">
+                        <img src="../public/images/icons/check.png"  class="check" id="checkVerifPassword" alt="icon check">
+                        <img src="../public/images/icons/multiply.png"  class="error" id="errorVerifPassword" alt="icon error">
+                    </div>
                 </div>
 
                 <button type="submit" id="btn_submit">Envoyer</button>
             </form>
         </div>
     </div>
-</div>
-<script src="../public/js/registration.js"></script>
+    <script src="../public/js/registration.js"></script>
 </body>
 </html>
