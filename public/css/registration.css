@@ -99,13 +99,18 @@ form{
 
 }
 
-
-
 .check,.error{
     display: none;
-    padding: 0.7rem;
-
 }
+
+#checkFirstname, #checkUsername, #checkEmail{
+    padding: 0.7rem;
+}
+
+#errorFirstname, #errorUsername, #errorEmail{
+    padding: 0.7rem;
+}
+
 
 #btn_submit{
     padding: 10px;

@@ -1,6 +1,10 @@
 <?php
 require_once ("Autoloader.php");
 use Model\Category;
+use Service\AuthorService;
+use Service\BookService;
+use Service\CategoryService;
+
 /*use Dao\AuthorDao;*/
 /*use Dao\BookDao;*/
 
@@ -11,8 +15,6 @@ use Model\Category;
 /*AuthorDao::addAuthor();*/
 
 
-\Service\BookService::addBooks();
-/*\Service\CategoryService::addCategories();*/
-/*\Service\AuthorService::addAuthors();*/
-/*$author = "Wendy Delorme";*/
-/*BookDao::addBooks();*/
+BookService::addBooks();
+/* CategoryService::addCategories();
+AuthorService::addAuthors(); */
