@@ -1,6 +1,8 @@
 <?php
+
+use Service\BookService;
 require_once ("Autoloader.php");
-use Model\Category;
+/* use Model\Category; */
 /*use Dao\AuthorDao;*/
 /*use Dao\BookDao;*/
 
@@ -11,6 +13,8 @@ use Model\Category;
 /*AuthorDao::addAuthor();*/
 
 
-var_dump(\Service\BookService::getBookIdByname("Rien ne t'efface"));
+/* var_dump(\Service\BookService::getBookIdByname("Rien ne t'efface")); */
 /*$author = "Wendy Delorme";*/
 /*BookDao::addBooks();*/
+
+BookService::getBooks();
