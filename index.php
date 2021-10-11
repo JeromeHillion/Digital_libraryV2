@@ -4,9 +4,10 @@ use Model\Category;
 use Service\AuthorService;
 use Service\BookService;
 use Service\CategoryService;
+use Service\UserService;
 
-/*use Dao\AuthorDao;*/
-/*use Dao\BookDao;*/
+/*use dao\AuthorDao;*/
+/*use dao\BookDao;*/
 
 /*$category_name ="Policier";*/
 
@@ -14,7 +15,6 @@ use Service\CategoryService;
 
 /*AuthorDao::addAuthor();*/
 
-
-BookService::addBooks();
+UserService::addUser();
 /* CategoryService::addCategories();
 AuthorService::addAuthors(); */

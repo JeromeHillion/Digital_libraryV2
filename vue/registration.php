@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../public/css/normalize.css">
     <link rel="stylesheet" href="../public/css/registration.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <title>Inscription</title>
 </head>
 <body>
@@ -14,19 +15,16 @@
 <div class="container_general">
     <div class="container">
         <div class="picture">
-            <img src="../public/images/pexels-polina-zimmerman-3747505.jpg" alt="">
-            <div class="text-picture">
-                <p>Digital library <span>la culture partout</span></p>
-            </div>
+            <img src="../public/images/2008.i504.008_isometric_online_library_set-14.jpg" alt="">
         </div>
 
         <div class="form">
             <h1>Inscription</h1>
-            <form id="form">
+            <form id="form" method="post" action="../index.php">
+                <div class="fieldGroup">
                 <div class="field">
-                    <label for="firstname">Prénom</label>
                     <div class="inputField">
-                        <input type="text" id="firstname" name="firstname">
+                        <input type="text" id="firstname" name="firstname" placeholder="prénom">
                         <img src="../public/images/icons/check.png" id="checkFirstname" class="check" alt="icon check">
                         <img src="../public/images/icons/multiply.png" id="errorFirstname" class="error" alt="icon error">
                     </div>
@@ -34,45 +32,48 @@
 
 
                 <div class="field">
-                    <label for="username">Nom</label>
+
                     <div class="inputField">
-                        <input type="text" id="username" name="username">
+                        <input type="text" id="username" name="username" placeholder="nom">
                         <img src="../public/images/icons/check.png"  class="check" id="checkUsername" alt="icon check">
                         <img src="../public/images/icons/multiply.png"  class="error" id="errorUsername" alt="icon error">
                     </div>
                 </div>
 
                 <div class="field">
-                    <label for="email">Email</label>
+
                     <div class="inputField">
-                        <input type="email" id="email" name="email">
+                        <input type="email" id="email" name="email" placeholder="email">
                         <img src="../public/images/icons/check.png"  class="check" id="checkEmail" alt="icon check">
                         <img src="../public/images/icons/multiply.png"  class="error" id="errorEmail" alt="icon error">
                     </div>
                 </div>
 
                 <div class="field">
-                    <label for="password">Mot de passe</label>
+
                     <div class="inputField">
-                        <input type="password" id="password" name="password">
+                        <input type="password" id="password" name="password" minlength="12" placeholder="mot de passe">
                         <img src="../public/images/icons/check.png"  class="check" id="checkPassword" alt="icon check">
                         <img src="../public/images/icons/multiply.png"  class="error" id="errorPassword" alt="icon error">
                     </div>
+                    <span class="errorMessagePassword"></span>
                 </div>
 
                 <div class="field">
-                    <label for="verif_password">Indiquer votre mot de passe à nouveau</label>
-                    <div class="inputField">
-                        <input type="password" id="verifPassword"  name="verifPassword">
-                        <img src="../public/images/icons/check.png"  class="check" id="checkVerifPassword" alt="icon check">
-                        <img src="../public/images/icons/multiply.png"  class="error" id="errorVerifPassword" alt="icon error">
-                    </div>
-                </div>
 
-                <button type="submit" id="btn_submit">Envoyer</button>
+                    <div class="inputField">
+                        <input type="password" id="verifyPassword"  name="verifyPassword" minlength="12" placeholder="retaper votre mot de passe">
+                        <img src="../public/images/icons/check.png"  class="check" id="checkVerifyPassword" alt="icon check">
+                        <img src="../public/images/icons/multiply.png"  class="error" id="errorVerifyPassword" alt="icon error">
+                    </div>
+                    <span class="errorMessageVerifyPassword"></span>
+                </div>
+                </div>
+                    <button type="submit" id="btnSubmit">Envoyer</button>
+
             </form>
         </div>
     </div>
-    <script src="../public/js/registration.js"></script>
+    <script type="module" src="../public/js/index.js"></script>
 </body>
 </html>
