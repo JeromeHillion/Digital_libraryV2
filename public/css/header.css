@@ -1,0 +1,47 @@
+.navBar {
+    display: flex;
+    border-bottom: solid 1px #ccc;
+}
+
+.logo {
+    display: flex;
+    flex: 0.5;
+    justify-content: center;
+}
+
+.inputSearch {
+    display: flex;
+    align-items: center;
+    flex: 0.5;
+
+}
+
+.inputSearch input {
+    width: 90%;
+    border: none;
+    background-color: #F0F0F0;
+    border-radius: 3.437rem;
+    outline: none;
+    font-size: 0.8rem;
+    color: #333;
+    padding: 0.5rem;
+}
+
+.account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0.5;
+
+}
+
+.account a {
+    margin-left: 2rem;
+}
+
+.account img {
+    margin-left: 30px;
+
+}
+
+

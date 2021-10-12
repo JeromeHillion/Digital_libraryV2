@@ -24,7 +24,7 @@
                 <div class="fieldGroup">
                 <div class="field">
                     <div class="inputField">
-                        <input type="text" id="firstname" name="firstname" placeholder="prénom">
+                        <input type="text" id="firstname" name="firstname" placeholder="prénom" required="required">
                         <img src="../public/images/icons/check.png" id="checkFirstname" class="check" alt="icon check">
                         <img src="../public/images/icons/multiply.png" id="errorFirstname" class="error" alt="icon error">
                     </div>
@@ -34,7 +34,7 @@
                 <div class="field">
 
                     <div class="inputField">
-                        <input type="text" id="username" name="username" placeholder="nom">
+                        <input type="text" id="username" name="username" placeholder="nom" required="required">
                         <img src="../public/images/icons/check.png"  class="check" id="checkUsername" alt="icon check">
                         <img src="../public/images/icons/multiply.png"  class="error" id="errorUsername" alt="icon error">
                     </div>
@@ -43,7 +43,7 @@
                 <div class="field">
 
                     <div class="inputField">
-                        <input type="email" id="email" name="email" placeholder="email">
+                        <input type="email" id="email" name="email" placeholder="email" required="required">
                         <img src="../public/images/icons/check.png"  class="check" id="checkEmail" alt="icon check">
                         <img src="../public/images/icons/multiply.png"  class="error" id="errorEmail" alt="icon error">
                     </div>
@@ -52,7 +52,7 @@
                 <div class="field">
 
                     <div class="inputField">
-                        <input type="password" id="password" name="password" minlength="12" placeholder="mot de passe">
+                        <input type="password" id="password" name="password" minlength="12" placeholder="mot de passe" required="required">
                         <img src="../public/images/icons/check.png"  class="check" id="checkPassword" alt="icon check">
                         <img src="../public/images/icons/multiply.png"  class="error" id="errorPassword" alt="icon error">
                     </div>
@@ -62,7 +62,7 @@
                 <div class="field">
 
                     <div class="inputField">
-                        <input type="password" id="verifyPassword"  name="verifyPassword" minlength="12" placeholder="retaper votre mot de passe">
+                        <input type="password" id="verifyPassword"  name="verifyPassword" minlength="12" placeholder="retaper votre mot de passe" required="required">
                         <img src="../public/images/icons/check.png"  class="check" id="checkVerifyPassword" alt="icon check">
                         <img src="../public/images/icons/multiply.png"  class="error" id="errorVerifyPassword" alt="icon error">
                     </div>
