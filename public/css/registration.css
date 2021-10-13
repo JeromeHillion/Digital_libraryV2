@@ -123,7 +123,7 @@ form{
 }
 #btnSubmit{
     padding: 10px;
-    background: #303F9F;
+    background-color: #303F9F;
     border-radius: 1.5rem;
     line-height: 1rem;
     width: 160px;
