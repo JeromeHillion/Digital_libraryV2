@@ -15,4 +15,8 @@ class AuthorService
     public static function getAuthors():array{
         return AuthorDao::authorsName();
     }
+
+    public static function addAuthors(){
+        return AuthorDao::addAuthor();
+    }
 }

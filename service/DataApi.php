@@ -11,7 +11,7 @@ class DataApi
     {
 
         //On indique le chemin de notre fichier JSON avec les livres
-        $json = json_decode(file_get_contents("./Api/books.json"));
+        $json = json_decode(file_get_contents("./api/books.json"));
 
         $array = new ArrayObject([]);
 

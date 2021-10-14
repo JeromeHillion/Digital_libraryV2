@@ -2,9 +2,9 @@
 spl_autoload_register(function ($className) {
     $directories=[
         "",
-        "\\Dao",
-        "\\Model",
-        "\\Service",
+        "\\dao",
+        "\\model",
+        "\\service",
     ];
     foreach ($directories as $directory)
     {
