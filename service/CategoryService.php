@@ -16,4 +16,9 @@ class CategoryService
         return CategoryDao::categoriesName();
     }
 
+    public static function addCategories(){
+
+        return CategoryDao::addCategories();
+    }
+
 }

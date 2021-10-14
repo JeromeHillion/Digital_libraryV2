@@ -1,0 +1,131 @@
+
+
+header{
+    padding: 5rem;
+    width: 80rem;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.navBar {
+    display: flex;
+    background-color: #03565C;
+    padding: 1rem;
+    border-radius: 2rem 2rem 0 0;
+}
+
+.logo {
+    display: flex;
+    flex: 0.5;
+    background-color: #03565C;
+    padding: 1rem 1rem 10rem 2rem;
+
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.logo h2, .logo span{
+    color: #FFFFFF;
+}
+.logo h2{
+    margin-bottom: 1rem;
+    font-family: 'Pacifico', cursive;
+    display: inline-block;
+}
+
+.logoImg{
+    display: flex;
+
+    justify-content: end;
+}
+.logo img{
+
+    width: 434px;
+    height: 349px;
+    flex: 1;
+}
+
+.inputSearch {
+    display: flex;
+    align-items: center;
+    flex: 0.5;
+
+}
+
+.inputSearch input {
+    width: 90%;
+    border: none;
+    background-color: #F0F0F0;
+    border-radius: 0.5rem 0 0 0.5rem;
+    outline: none;
+    font-size: 0.8rem;
+    color: #333;
+    padding: 0.5rem;
+}
+
+.inputSearch img{
+    border: solid 1px #F0F0F0 ;
+    padding: 0.156rem 0.5rem 0.156rem;
+    background-color: #F0F0F0;
+    border-radius: 0 0.5rem  0.5rem 0 ;
+}
+.inputSearch #openBook{
+    border:0;
+    padding: 1rem;
+    background-color: #03565C;
+}
+
+.account {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex: 0.5;
+
+}
+.account a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.account :nth-child(1) {
+    margin:0 0.5rem 0 2rem;
+
+
+}
+.account :nth-child(2) {
+    margin:0 0.6rem 0 0.3rem;
+
+
+}
+.account :nth-child(3) {
+    margin:0 1rem 0 1rem;
+
+
+}
+.account :nth-child(4) {
+    margin:0 1rem 0 0.5rem;
+
+
+}
+
+.account #library {
+    margin-left: 13px;
+
+}
+.account #books {
+    margin-left: 23px;
+
+}
+.account #user {
+    margin-left: 30px;
+
+}
+.account #cart {
+    margin-left: 25px;
+
+}
+
+

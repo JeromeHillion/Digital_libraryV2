@@ -13,4 +13,8 @@ class BookService
     public static function getBookIdByname(string $book): array{
         return BookDao::getBookIdByname($book);
     }
+
+    public static function addBooks(){
+        return BookDao::addBooks();
+    }
 }
