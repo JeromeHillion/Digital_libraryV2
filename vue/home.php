@@ -35,12 +35,30 @@
                 ?>
                     <div class="card">
                         <img src="<?php echo $lastBook['cover'] ?>" alt="">
-                        <h4><?php echo nl2br($lastBook['name']);?></h4>
-                        <p><?php echo $lastBook['publication'];?></p>
+                        <div class="btnCard">
+                            <a href="#" id="btnDetail">Voir le détail</a>
+                            <a href="#" id="btnCart">Ajouter au panier</a>
+                        </div>
                     </div>
             <?php }
             ?>
             
+        </div>
+
+        <h2>Policier</h2>
+        <div class="cards">
+            <?php foreach ($booksOfCategoryPolicier as $bookOfCategoryPolicier) {
+                ?>
+                    <div class="card">
+                        <img src="<?php echo $bookOfCategoryPolicier['cover'] ?>" alt="image livre">
+                        <div class="btnCard">
+                            <a href="#" id="btnDetail">Voir le détail</a>
+                            <a href="#" id="btnCart">Ajouter au panier</a>
+                        </div>
+                    </div>
+            <?php }
+            ?>
+
         </div>
     </div>
     </div>

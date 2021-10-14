@@ -49,7 +49,7 @@ h2{
 }
 
 .card{
-    flex-basis: 200px;
+    flex-basis: 210px;
 }
 
 
@@ -58,3 +58,25 @@ h2{
     height:200px ;
     text-align: center;
 }
+
+.btnCard{
+    display: flex;
+    justify-content: space-around;
+}
+#btnDetail{
+    background-color: #536665;
+
+}
+#btnCart{
+    background-color: #EBD9C8;
+
+}
+.btnCard a{
+    text-decoration: none;
+    padding: 0.4rem;
+    font-size: 12px;
+    border-radius: 1rem;
+    color: #ffffff;
+}
+
+
