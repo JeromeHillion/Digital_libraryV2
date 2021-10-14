@@ -115,6 +115,13 @@ class BookDao
 
 }
 
+    public static function getLastBooks(){
+        $bdd = BddConnection::connection();
+        $req = $bdd->prepare("select name,publication,cover,summary from books  where YEAR(publication) = YEAR(CURDATE())limit 6; ");
+        $req->execute();
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 
 

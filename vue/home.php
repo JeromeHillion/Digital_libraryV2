@@ -14,5 +14,36 @@
 </head>
 <body>
 <?php include_once 'fragment/header.php'?>
+
+<div class="containerGeneral">
+    <div class="container">
+        <div class="categorieSection">
+<h2>Catégories</h2>
+                <?php
+                foreach ($categories as $categorie){
+                    ?>
+                <a href="#"><?php echo $categorie['name'];?></a>
+               <?php }
+                ?>
+        </div>
+
+
+    <div class="bookSection">
+        <h2>Nouveautés</h2>
+        <div class="cards">
+            <?php foreach ($lastBooks as $lastBook) {
+                ?>
+                    <div class="card">
+                        <img src="<?php echo $lastBook['cover'] ?>" alt="">
+                        <h4><?php echo nl2br($lastBook['name']);?></h4>
+                        <p><?php echo $lastBook['publication'];?></p>
+                    </div>
+            <?php }
+            ?>
+            
+        </div>
+    </div>
+    </div>
+</div>
 </body>
 </html>
