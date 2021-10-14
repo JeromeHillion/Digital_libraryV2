@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<div class="container_general">
+<div class="containerGeneral">
     <div class="container">
         <div class="picture">
             <img src="../public/images/2008.i504.008_isometric_online_library_set-14.jpg" alt="">

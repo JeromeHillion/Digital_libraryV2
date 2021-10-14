@@ -14,26 +14,27 @@
 <body>
 <header>
     <div class="navBar">
+        <div class="logo">
+            <div class="title">
+                <h1>Digital library</h1>
+                <span>La bibliothèque en ligne</span>
+            </div>
+        </div>
         <div class="inputSearch">
-            <img src="public/images/icons/open-book.png" id="openBook" alt="open book">
             <input type="text" placeholder="Rechercher...">
             <img src="public/images/icons/search.png" alt="icon search">
         </div>
         <div class="account">
             <a href="#"> <img src="public/images/icons/library.png" id="library" alt="icon library"><span></span><br>Accueil</a>
             <a href="#"><img src="public/images/icons/books.png" id="books" alt="books"><span></span><br>catalogue</a>
-            <a href="#"> <img src="public/images/icons/user.png" id="user" alt="icon cart"><span></span><br>Mon compte</a>
-            <a href="#"><img src="public/images/icons/shopping-cart.png" id="cart" alt="shopping cart"><span></span><br>Mon panier</a>
+            <a href="#"> <img src="public/images/icons/user.png" id="user" alt="icon cart"><span></span><br>Mon
+                compte</a>
+            <a href="#"><img src="public/images/icons/shopping-cart.png" id="cart" alt="shopping cart"><span></span><br>Mon
+                panier</a>
         </div>
-    </div>
-    <div class="logo">
-        <div class="title">
-            <h2>Digital library</h2>
-            <span>La bibliothèque en ligne</span>
-        </div>
-        <div class="logoImg">
-            <img src="public/images/imageLibrary.png" alt="young people">
-        </div>
+
+
+
     </div>
 
 </header>

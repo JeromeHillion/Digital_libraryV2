@@ -1,9 +1,7 @@
 
 
 header{
-    padding: 5rem;
-    width: 80rem;
-    margin: 0 auto;
+   width: 100%;
     max-width: 100%;
 }
 
@@ -11,14 +9,15 @@ header{
     display: flex;
     background-color: #03565C;
     padding: 1rem;
-    border-radius: 2rem 2rem 0 0;
+
+
 }
 
 .logo {
     display: flex;
-    flex: 0.5;
+    flex: 1.5;
     background-color: #03565C;
-    padding: 1rem 1rem 10rem 2rem;
+    padding: 0 1rem 2rem 2rem;
 
 }
 .title{
@@ -27,31 +26,20 @@ header{
     flex: 1;
 }
 
-.logo h2, .logo span{
+.logo h1, .logo span{
     color: #FFFFFF;
 }
-.logo h2{
+.logo h1{
     margin-bottom: 1rem;
     font-family: 'Pacifico', cursive;
     display: inline-block;
 }
 
-.logoImg{
-    display: flex;
-
-    justify-content: end;
-}
-.logo img{
-
-    width: 434px;
-    height: 349px;
-    flex: 1;
-}
 
 .inputSearch {
     display: flex;
     align-items: center;
-    flex: 0.5;
+    flex: 2;
 
 }
 
@@ -63,12 +51,12 @@ header{
     outline: none;
     font-size: 0.8rem;
     color: #333;
-    padding: 0.5rem;
+    padding: 1rem;
 }
 
 .inputSearch img{
     border: solid 1px #F0F0F0 ;
-    padding: 0.156rem 0.5rem 0.156rem;
+    padding: 0.655rem;
     background-color: #F0F0F0;
     border-radius: 0 0.5rem  0.5rem 0 ;
 }
@@ -82,7 +70,7 @@ header{
     display: flex;
     justify-content: end;
     align-items: center;
-    flex: 0.5;
+    flex: 2;
 
 }
 .account a{
@@ -127,5 +115,6 @@ header{
     margin-left: 25px;
 
 }
+
 
 

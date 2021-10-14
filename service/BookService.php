@@ -17,4 +17,8 @@ class BookService
     public static function addBooks(){
         return BookDao::addBooks();
     }
+
+    public static function getNews(){
+        return BookDao::getLastBooks();
+    }
 }
