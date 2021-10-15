@@ -61,7 +61,16 @@ class BookDao
         }
 
     }
+public static function findBookById($id){
+    //Connexion à la base de donnée
+    $bdd = BddConnection::connection();
 
+    $req = $bdd->prepare("select id  from authors where id= :id");
+    $req->bindParam(':id', $id);
+    $req->execute();
+
+    return $req->fetch(PDO::FETCH_ASSOC)["id"];
+}
     public static function findAuthorById(string $author)
     {
 
@@ -117,11 +126,18 @@ class BookDao
 
     public static function getLastBooks(){
         $bdd = BddConnection::connection();
-        $req = $bdd->prepare("select name,publication,cover,summary from books  where YEAR(publication) = YEAR(CURDATE())limit 6; ");
+        $req = $bdd->prepare("select id,cover from books  where YEAR(publication) = YEAR(CURDATE()) order by books.publication desc limit 6 ; ");
         $req->execute();
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function getSmallListBooksByCategory(string $category){
+        $bdd = BddConnection::connection();
+        $req = $bdd->prepare("SELECT books.id,books.name,books.cover FROM books JOIN categories ON category_id = Categories.id WHERE categories.name = :category limit 6; ");
+        $req->bindParam(':category', $category);
+        $req->execute();
+        return $req->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 
 

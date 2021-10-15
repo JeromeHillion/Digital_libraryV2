@@ -21,4 +21,12 @@ class BookService
     public static function getNews(){
         return BookDao::getLastBooks();
     }
+
+    public static function getSmallListBooksByCategory(string $category):array{
+        return BookDao::getSmallListBooksByCategory($category);
+    }
+
+    public static function findBookByIdService($id){
+        return BookDao::findBookById($id);
+    }
 }
