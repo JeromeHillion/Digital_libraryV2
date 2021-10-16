@@ -32,12 +32,13 @@
         <h2>Nouveautés</h2>
         <div class="cards">
             <?php foreach ($lastBooks as $lastBook) {
+
                 ?>
                     <div class="card">
                         <img src="<?php echo $lastBook['cover'] ?>" alt="">
                         <div class="btnCard">
-                            <a href="vue/detailBook.php/<?php echo $lastBook['id'] ?>" id="btnDetail">Voir le détail</a>
-                            <a href="#" id="btnCart">Ajouter au panier</a>
+                            <a href="detailsBook.php?id=<?php echo $lastBook['id'] ?>" id="btnDetail"><i class="fas fa-info-circle"></i>Détail</a>
+                            <a href="#" id="btnCart"><i class="fas fa-plus-circle"></i>Panier</a>
                         </div>
                     </div>
             <?php }
@@ -52,8 +53,8 @@
                     <div class="card">
                         <img src="<?php echo $bookOfCategoryPolicier['cover'] ?>" alt="image livre">
                         <div class="btnCard">
-                            <a href="vue/detailBook.php/<?php echo $bookOfCategoryPolicier['id'] ?>" id="btnDetail">Voir le détail</a>
-                            <a href="#" id="btnCart">Ajouter au panier</a>
+                            <a href="detailsBook.php?id=<?php echo $bookOfCategoryPolicier['id'] ?>" id="btnDetail"><i class="fas fa-info-circle"></i>Détail</a>
+                            <a href="#" id="btnCart"><i class="fas fa-plus-circle"></i>Panier</a>
                         </div>
                     </div>
             <?php }
@@ -67,8 +68,8 @@
                     <div class="card">
                         <img src="<?php echo $bookOfCategoryFantastique['cover'] ?>" alt="image livre">
                         <div class="btnCard">
-                            <a href="vue/detailBook.php/<?php echo $bookOfCategoryFantastique['id'] ?>" id="btnDetail">Voir le détail</a>
-                            <a href="#" id="btnCart">Ajouter au panier</a>
+                            <a href="detailsBook.php?id=<?php echo $bookOfCategoryFantastique['id'] ?>" id="btnDetail"><i class="fas fa-info-circle"></i>Détail</a>
+                            <a href="#" id="btnCart"><i class="fas fa-plus-circle"></i>Panier</a>
                         </div>
                     </div>
             <?php }
@@ -82,8 +83,8 @@
                     <div class="card">
                         <img src="<?php echo $bookOfCategoryScienceFiction['cover'] ?>" alt="image livre">
                         <div class="btnCard">
-                            <a href="vue/detailBook.php/<?php echo $bookOfCategoryScienceFiction['id'] ?>" id="btnDetail">Voir le détail</a>
-                            <a href="#" id="btnCart">Ajouter au panier</a>
+                            <a href="detailsBook.php?id=<?php echo $bookOfCategoryScienceFiction['id'] ?>" id="btnDetail"><i class="fas fa-info-circle"></i>Détail</a>
+                            <a href="#" id="btnCart"><i class="fas fa-plus-circle"></i>Panier</a>
                         </div>
                     </div>
             <?php }
@@ -97,8 +98,8 @@
                     <div class="card">
                         <img src="<?php echo $bookOfCategoryRoman['cover'] ?>" alt="image livre">
                         <div class="btnCard">
-                            <a href="vue/detailBook.php/<?php echo $bookOfCategoryRoman['id'] ?>" id="btnDetail">Voir le détail</a>
-                            <a href="#" id="btnCart">Ajouter au panier</a>
+                            <a href="detailsBook.php?id=<?php echo $bookOfCategoryRoman['id'] ?>" id="btnDetail"><i class="fas fa-info-circle"></i>Détail</a>
+                            <a href="#" id="btnCart"><i class="fas fa-plus-circle"></i>Panier</a>
                         </div>
                     </div>
             <?php }
@@ -112,8 +113,8 @@
                     <div class="card">
                         <img src="<?php echo $bookOfCategoryRomance['cover'] ?>" alt="image livre">
                         <div class="btnCard">
-                            <a href="vue/detailBook.php/<?php echo $bookOfCategoryRomance['id'] ?>" id="btnDetail">Voir le détail</a>
-                            <a href="#" id="btnCart">Ajouter au panier</a>
+                            <a href="detailsBook.php?id=<?php echo $bookOfCategoryRomance['id'] ?>" id="btnDetail"><i class="fas fa-info-circle"></i>Détail</a>
+                            <a href="#" id="btnCart"><i class="fas fa-plus-circle"></i>Panier</a>
                         </div>
                     </div>
             <?php }
@@ -127,8 +128,8 @@
                     <div class="card">
                         <img src="<?php echo $bookOfCategoryAventure['cover'] ?>" alt="image livre">
                         <div class="btnCard">
-                            <a href="vue/detailBook.php/<?php echo $bookOfCategoryAventure['id'] ?>" id="btnDetail">Voir le détail</a>
-                            <a href="#" id="btnCart">Ajouter au panier</a>
+                            <a href="detailsBook.php?id=<?php echo $bookOfCategoryAventure['id'] ?>" id="btnDetail"><i class="fas fa-info-circle"></i>Détail</a>
+                            <a href="#" id="btnCart"><i class="fas fa-plus-circle"></i>Panier</a>
                         </div>
                     </div>
             <?php }
@@ -142,8 +143,8 @@
                     <div class="card">
                         <img src="<?php echo $bookOfCategoryBandesDessinees['cover'] ?>" alt="image livre">
                         <div class="btnCard">
-                            <a href="vue/detailBook.php/<?php echo $bookOfCategoryBandesDessinees['id'] ?>" id="btnDetail">Voir le détail</a>
-                            <a href="#" id="btnCart">Ajouter au panier</a>
+                            <a href="detailsBook.php?id=<?php echo $bookOfCategoryBandesDessinees['id'] ?>" id="btnDetail"><i class="fas fa-info-circle"></i>Détail</a>
+                            <a href="#" id="btnCart"><i class="fas fa-plus-circle"></i>Panier</a>
                         </div>
                     </div>
             <?php }
@@ -157,8 +158,8 @@
                     <div class="card">
                         <img src="<?php echo $bookOfCategoryManga['cover'] ?>" alt="image livre">
                         <div class="btnCard">
-                            <a href="vue/detailBook.php/<?php echo $bookOfCategoryManga['id'] ?>" id="btnDetail">Voir le détail</a>
-                            <a href="#" id="btnCart">Ajouter au panier</a>
+                            <a href="detailsBook.php?id=<?php echo $bookOfCategoryManga['id'] ?>" id="btnDetail"><i class="fas fa-info-circle"></i>Détail</a>
+                            <a href="#" id="btnCart"><i class="fas fa-plus-circle"></i>Panier</a>
                         </div>
                     </div>
             <?php }
@@ -167,5 +168,6 @@
     </div>
     </div>
 </div>
+<script src="https://kit.fontawesome.com/e4da5252c0.js" crossorigin="anonymous"></script>
 </body>
 </html>

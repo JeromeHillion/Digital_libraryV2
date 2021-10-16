@@ -65,11 +65,11 @@ public static function findBookById($id){
     //Connexion à la base de donnée
     $bdd = BddConnection::connection();
 
-    $req = $bdd->prepare("select id  from authors where id= :id");
+    $req = $bdd->prepare("select *  from books where id= :id");
     $req->bindParam(':id', $id);
     $req->execute();
 
-    return $req->fetch(PDO::FETCH_ASSOC)["id"];
+    return $req->fetch(PDO::FETCH_ASSOC);
 }
     public static function findAuthorById(string $author)
     {
@@ -126,18 +126,19 @@ public static function findBookById($id){
 
     public static function getLastBooks(){
         $bdd = BddConnection::connection();
-        $req = $bdd->prepare("select id,cover from books  where YEAR(publication) = YEAR(CURDATE()) order by books.publication desc limit 6 ; ");
+        $req = $bdd->prepare("select id,cover,name, author_id from books  where YEAR(publication) = YEAR(CURDATE()) order by books.publication desc limit 6 ; ");
         $req->execute();
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function getSmallListBooksByCategory(string $category){
         $bdd = BddConnection::connection();
-        $req = $bdd->prepare("SELECT books.id,books.name,books.cover FROM books JOIN categories ON category_id = Categories.id WHERE categories.name = :category limit 6; ");
+        $req = $bdd->prepare("SELECT books.id,books.name,books.cover,books.author_id FROM books JOIN categories ON category_id = categories.id WHERE categories.name = :category limit 6; ");
         $req->bindParam(':category', $category);
         $req->execute();
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
+
 }
 
 

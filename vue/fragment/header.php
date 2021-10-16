@@ -25,7 +25,7 @@
             <img src="public/images/icons/search.png" alt="icon search">
         </div>
         <div class="account">
-            <a href="#"> <img src="public/images/icons/library.png" id="library" alt="icon library"><span></span><br>Accueil</a>
+            <a href="index.php"> <img src="public/images/icons/library.png" id="library" alt="icon library"><span></span><br>Accueil</a>
             <a href="#"><img src="public/images/icons/books.png" id="books" alt="books"><span></span><br>catalogue</a>
             <a href="#"> <img src="public/images/icons/user.png" id="user" alt="icon cart"><span></span><br>Mon
                 compte</a>

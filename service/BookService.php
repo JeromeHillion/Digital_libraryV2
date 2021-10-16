@@ -29,4 +29,8 @@ class BookService
     public static function findBookByIdService($id){
         return BookDao::findBookById($id);
     }
+
+    public static function findCategoryNameByIdService(int $id){
+        return BookDao::findCategoryNameById($id);
+    }
 }

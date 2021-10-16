@@ -1,0 +1,80 @@
+body {
+    background-color: #F1DBC9;
+    font-family: 'Raleway', sans-serif;
+}
+
+.containerGeneral {
+    width: 115rem;
+    margin: 0 auto;
+
+}
+
+h1, h2 {
+    color: #05505B;
+
+}
+
+.infosBook {
+    background-color: #F7F7F7;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    padding: 2rem;
+}
+
+.bookIdentity {
+    width: 90rem;
+    display: flex;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+    border-radius: 0.3rem;
+    max-width: 100%;
+    margin: 0 auto;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: solid 1px #cccccc;
+
+
+}
+ span {
+    font-weight: bold;
+}
+
+.cover{
+    flex: 0.3;
+}
+.cover img {
+    width: 200px;
+    height: 300px;
+    border: solid 1px #cccccc;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+    border-radius: 0.3rem;
+}
+
+.info {
+
+    display: flex;
+    background-color: #ffffff;
+    padding: 1rem 1rem 0 1rem;
+
+
+}
+
+p {
+    color: #818787;;
+}
+
+.summary {
+    text-align: justify;
+    padding: 0 2rem 2rem 1.2rem;
+}
+
+#btnCart {
+    background-color: #F1DBC9;
+    color: #536665;
+    text-decoration: none;
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+    font-weight: bold;
+}

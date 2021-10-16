@@ -21,4 +21,8 @@ class CategoryService
         return CategoryDao::addCategories();
     }
 
+    public static function findCategoryNameByIdService(int $id){
+        return CategoryDao::findCategoryNameById($id);
+    }
+
 }

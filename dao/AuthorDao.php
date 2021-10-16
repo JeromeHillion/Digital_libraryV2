@@ -69,5 +69,19 @@ class AuthorDao
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function findAuthorNameById(int $id)
+    {
+
+        //Connexion à la base de donnée
+        $bdd = BddConnection::connection();
+
+        $req = $bdd->prepare("select name  from authors where id= :id");
+        $req->bindParam(':id', $id);
+        $req->execute();
+
+        return $req->fetch(PDO::FETCH_ASSOC);
+    }
+
+
 }
 

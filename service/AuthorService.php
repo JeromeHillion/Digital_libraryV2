@@ -19,4 +19,9 @@ class AuthorService
     public static function addAuthors(){
         return AuthorDao::addAuthor();
     }
+
+    public static function findAuthorNameByIdService(int $id){
+        return AuthorDao::findAuthorNameById($id);
+    }
+
 }
