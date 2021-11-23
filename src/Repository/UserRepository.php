@@ -1,11 +1,11 @@
 <?php
 
-namespace Dao;
+namespace App\Repository;
 
 use BddConnection;
 
 
-class UserDao
+class UserRepository
 {
 public static function addUser(){
 

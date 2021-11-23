@@ -5,9 +5,9 @@ namespace Dao;
 use BddConnection;
 use PDO;
 use Service\DataApi;
-use Model\Author;
+use Entity\Author;
 
-class AuthorDao
+class AuthorRepository
 {
 
 
