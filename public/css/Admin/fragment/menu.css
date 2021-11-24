@@ -16,7 +16,7 @@ color: #03565C;
 .verticalMenu
 {
 display: flex;
-flex: 1;
+flex: 0.3;
 }
 
 .verticalMenu h3

@@ -2,32 +2,46 @@
 
 namespace Model;
 
-class Author
-{
-    protected string $name;
+use App\Entity\Entity;
 
+class Author extends Entity
+{    
     /**
-     * @param string $name
+     * getId
+     *
+     * @return int
      */
-    public function __construct(string $name)
+    public function getId():int
     {
-        $this->name = $name;
+        return $this->getDataWithKey('id');
     }
-
+    
+    /**
+     * setId
+     *
+     * @param  mixed $id
+     * @return void
+     */
+    public function setId($id)
+    {
+        $this->setDataWithKey('id', $id);
+        return $this;
+    }
 
     /**
      * @return mixed
      */
-    public function getName()
+    public function getName():string
     {
-        return $this->name;
+        return $this->getDataWithKey('name');
     }
 
     /**
      * @param mixed $name
      */
-    public function setName($name): void
+    public function setName($name)
     {
-        $this->name = $name;
+        $this->setDataWithKey('name', $name);
+        return $this;
     }
 }

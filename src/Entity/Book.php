@@ -2,56 +2,58 @@
 
 namespace Model;
 
-class Book
-{
-protected string $name;
-protected  string $publication;
-protected string $cover;
-protected  string $summary;
-protected int $author_id;
-protected int $category_id;
+use App\Entity\Entity;
+use DateTime;
 
+class Book extends Entity
+{
+        
     /**
-     * @param string $name
-     * @param string $publication
-     * @param string $cover
-     * @param string $summary
-     * @param int $author_id
-     * @param int $category_id
+     * getId
+     *
+     * @return int
      */
-    public function __construct(string $name, string $publication, string $cover, string $summary, int $author_id, int $category_id)
+    public function getId():int
     {
-        $this->name = $name;
-        $this->publication = $publication;
-        $this->cover = $cover;
-        $this->summary = $summary;
-        $this->author_id = $author_id;
-        $this->category_id = $category_id;
+        return $this->getDataWithKey('id');
+    }
+    
+    /**
+     * setId
+     *
+     * @param  mixed $id
+     * @return void
+     */
+    public function setId(int $id)
+    {
+        $this->setDataWithKey('id',$id);
+        return $this;
     }
 
 
     /**
      * @return mixed
      */
-    public function getName()
+    public function getName():string
     {
-        return $this->name;
+        return $this->getDataWithKey('name');
     }
 
     /**
      * @param mixed $name
      */
-    public function setName($name)
+    public function setName(string $name)
     {
-        $this->name = $name;
+        $this->setDataWithKey('name', $name);
+        return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getPublication()
+    public function getPublication():DateTime
     {
-        return $this->publication;
+        return $this->getDataWithKey('publication');
     }
 
     /**
@@ -59,15 +61,16 @@ protected int $category_id;
      */
     public function setPublication($publication)
     {
-        $this->publication = $publication;
+        $this->setDataWithKey('publication', $publication);
+        return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getCover()
+    public function getCover():string
     {
-        return $this->cover;
+        return $this->getDataWithKey('cover');
     }
 
     /**
@@ -75,15 +78,16 @@ protected int $category_id;
      */
     public function setCover($cover)
     {
-        $this->cover = $cover;
+        $this->setDataWithKey('cover', $cover);
+        return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getSummary()
+    public function getSummary():string
     {
-        return $this->summary;
+        return $this->getDataWithKey('summary');
     }
 
     /**
@@ -91,7 +95,8 @@ protected int $category_id;
      */
     public function setSummary($summary)
     {
-        $this->summary = $summary;
+        $this->setDataWithKey('summary' , $summary);
+        return $this;
     }
 
     /**
@@ -105,9 +110,10 @@ protected int $category_id;
     /**
      * @param int $author_id
      */
-    public function setAuthorId(int $author_id): void
+    public function setAuthorId(int $author_id)
     {
         $this->author_id = $author_id;
+        return $this;
     }
 
     /**
@@ -121,9 +127,10 @@ protected int $category_id;
     /**
      * @param int $category_id
      */
-    public function setCategoryId(int $category_id): void
+    public function setCategoryId(int $category_id)
     {
         $this->category_id = $category_id;
+        return $this;
     }
 
 

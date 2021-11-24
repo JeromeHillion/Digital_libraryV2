@@ -2,70 +2,53 @@
 
 namespace Model;
 
-class User
+use App\Entity\Entity;
+use DateTime;
+
+class User extends Entity
 {
 
-    protected string $firstname;
-    protected string $username;
-    protected string $email;
-    protected string $avatar;
-    protected string $date_created;
-    protected string $password;
-    protected string $status;
-    protected int    $loan_id;
-
-    /**
-     * @param string $firstname
-     * @param string $username
-     * @param string $email
-     * @param string $avatar
-     * @param string $date_created
-     * @param string $password
-     * @param string $status
-     * @param int $loan_id
-     */
-    public function __construct(string $firstname, string $username, string $email, string $avatar, string $date_created, string $password, string $status, int $loan_id)
-    {
-        $this->firstname = $firstname;
-        $this->username = $username;
-        $this->email = $email;
-        $this->avatar = $avatar;
-        $this->date_created = $date_created;
-        $this->password = $password;
-        $this->status = $status;
-        $this->loan_id = $loan_id;
-    }
+    
 
     /**
      * @return string
      */
     public function getFirstname(): string
     {
-        return $this->firstname;
+        return $this->getDataWithKey('firstname');
     }
 
     /**
      * @param string $firstname
      */
-    public function setFirstname(string $firstname): void
+    public function setFirstname(string $firstname)
     {
-        $this->firstname = $firstname;
+        $this->setDataWithKey('firstname', $firstname);
+        return $this;
     }
 
+      
     /**
+     * getLastname
+     *
      * @return string
      */
-    public function getUsername(): string
+    public function getLastname(): string
     {
-        return $this->username;
+        return $this->getDataWithKey('lastname');
     }
 
+        
     /**
-     * @param string $username
+     * setLastname
+     *
+     * @param  mixed $lastname
+     * @return void
      */
-    public function setUsername(string $username): void
+    public function setLastname(string $lastname)
     {
-        $this->username = $username;
+        $this->setDataWithKey('lastname', $lastname);
+        return $this;
     }
 
     /**
@@ -73,15 +56,16 @@ class User
      */
     public function getEmail(): string
     {
-        return $this->email;
+        return $this->getDataWithKey('email');
     }
 
     /**
      * @param string $email
      */
-    public function setEmail(string $email): void
+    public function setEmail(string $email)
     {
-        $this->email = $email;
+        $this->setDataWithKey('email', $email);
+        return $this;
     }
 
     /**
@@ -89,31 +73,33 @@ class User
      */
     public function getAvatar(): string
     {
-        return $this->avatar;
+        return $this->getDataWithKey('avatar');
     }
 
     /**
      * @param string $avatar
      */
-    public function setAvatar(string $avatar): void
+    public function setAvatar(string $avatar)
     {
-        $this->avatar = $avatar;
+        $this->setDataWithKey('avatar', $avatar);
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getDateCreated(): string
+    public function getDateCreated(): DateTime
     {
-        return $this->date_created;
+        return $this->getDataWithKey('dateCreated');
     }
 
     /**
      * @param string $date_created
      */
-    public function setDateCreated(string $date_created): void
+    public function setDateCreated(string $date_created)
     {
-        $this->date_created = $date_created;
+        $this->setDataWithKey('dateCreated', $date_created);
+        return $this;
     }
 
     /**
@@ -121,15 +107,16 @@ class User
      */
     public function getPassword(): string
     {
-        return $this->password;
+        return $this->getDataWithKey('password');
     }
 
     /**
      * @param string $password
      */
-    public function setPassword(string $password): void
+    public function setPassword(string $password)
     {
-        $this->password = $password;
+        $this->setDataWithKey('password', $password);
+        return $this;
     }
 
     /**
@@ -137,15 +124,16 @@ class User
      */
     public function getStatus(): string
     {
-        return $this->status;
+        return $this->getDataWithKey('status');
     }
 
     /**
      * @param string $status
      */
-    public function setStatus(string $status): void
+    public function setStatus(string $status)
     {
-        $this->status = $status;
+        $this->setDataWithKey('status', $status);
+        return $this;
     }
 
     /**
@@ -153,15 +141,16 @@ class User
      */
     public function getLoanId(): int
     {
-        return $this->loan_id;
+        return $this->getDataWithKey('loanId');
     }
 
     /**
      * @param int $loan_id
      */
-    public function setLoanId(int $loan_id): void
+    public function setLoanId(int $loan_id)
     {
-        $this->loan_id = $loan_id;
+        $this->setDataWithKey('loanId', $loan_id);
+        return $this;
     }
 
 

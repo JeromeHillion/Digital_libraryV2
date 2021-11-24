@@ -3,33 +3,48 @@
 
 namespace Model;
 
-class Category
+use App\Entity\Entity;
+
+class Category extends Entity
 {
-    protected string $name;
-
+       
     /**
-     * @param string $name
+     * getId
+     *
+     * @return int
      */
-    public function __construct(string $name)
+    public function getId():int
     {
-        $this->name = $name;
+        return $this->getDataWithKey('id');
     }
-
-
+    
+    /**
+     * setId
+     *
+     * @param  mixed $id
+     * @return void
+     */
+    public function setId(int $id)
+    {
+        $this->setDataWithKey('id', $id);
+        return $this;
+    }
+  
     /**
      * @return mixed
      */
-    public function getName()
+    public function getName():string
     {
-        return $this->name;
+        return $this->getDataWithKey('name');
     }
 
     /**
      * @param mixed $name
      */
-    public function setName($name): void
+    public function setName(string $name)
     {
-        $this->name = $name;
+        $this->setDataWithKey('name', $name);
+        return $this;
     }
 
 }
