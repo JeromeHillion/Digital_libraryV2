@@ -8,11 +8,29 @@ const btnImport = document.getElementById('importJson');
 /************************DOM************************/
 
 document.addEventListener("DOMContentLoaded", () => {
-
     
-btnImport.addEventListener('click', () =>{
+    let url = location.href;
+    url = url.replace('Vue/Admin/catalog.php','Controller/CatalogController.php');
+    
 
-    console.log('OK !');
+
+
+    btnImport.addEventListener('click', () => {
+
+   
+    fetch(url)
+  
+    .then(function(res) {
+        if (res.ok) {
+          return res.json();
+        }
+      })
+      .then(function(value) {
+        console.log(value);
+      })
+      .catch(function(err) {
+        // Une erreur est survenue
+      });
 
 });
 
