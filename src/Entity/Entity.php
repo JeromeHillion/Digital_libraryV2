@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Entity;
 
 class Entity
@@ -36,8 +37,22 @@ class Entity
     return $this;
   }
 
-  public function getDataWithKey($key){
+  public function getDataWithKey($key)
+  {
     //On renvoie la clé du tableau sinon on renvoie null
     return $this->data[$key] ?? null;
-}
+  }
+
+  public function __call($name, $arguments)
+  {
+    switch ($name) {
+      case 'set':
+        $this->setDataWithKey($name, $arguments);
+        break;
+
+      case 'get':
+        $this->getDataWithKey($name);
+        break;
+    }
+  }
 }

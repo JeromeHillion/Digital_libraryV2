@@ -3,7 +3,7 @@
 namespace App\MySql;
 
 use App\MySql\BddConnection;
-require_once 'src/Mysql/Configuration.php';
+require_once '../Mysql/Configuration.php';
 class App
 {
 

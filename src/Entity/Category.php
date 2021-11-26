@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Model;
+namespace App\Entity;
 
 use App\Entity\Entity;
 
@@ -24,7 +24,7 @@ class Category extends Entity
      * @param  mixed $id
      * @return void
      */
-    public function setId(int $id)
+    public function setId(int $id):Category
     {
         $this->setDataWithKey('id', $id);
         return $this;
@@ -41,7 +41,7 @@ class Category extends Entity
     /**
      * @param mixed $name
      */
-    public function setName(string $name)
+    public function setName(string $name):Category
     {
         $this->setDataWithKey('name', $name);
         return $this;

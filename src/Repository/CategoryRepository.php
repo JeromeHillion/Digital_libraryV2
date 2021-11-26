@@ -1,70 +1,67 @@
 <?php
 
-namespace Dao;
+namespace App\Repository;
 
-use BddConnection;
-use PDO;
-use Service\DataApi;
-use Model\Category;
-
-
+use App\Manager\ApiManager;
+use App\MySql\App;
+use App\MySql\BddConnection;
+use App\Entity\Category;
 
 
-class CategoryDao
+use const App\MySql\T_CATEGORY;
+
+
+class CategoryRepository
 {
+public BddConnection $connection;
+public String $t_name;
 
-    public static function addCategories()
+public function __construct()
+{
+    $this->connection = App::getInstance()->getConnection();
+    $this->t_name = T_CATEGORY;
+}
+
+
+    public static function save(Category $category)
     {
-
-        //Connexion à la base de donnée
-        $bdd = BddConnection::connection();
-
         //On récupère les données du JSON
-        $dataApi = DataApi::getData();
+        $apiManager = new ApiManager;
+        $dataApi = $apiManager->getJsonFile();
 
+        $arrCategories = [];
+$category = null;
         //On boucle pour récupérer les catrégories
-        foreach ($dataApi as $category_data) {
-            $category_name = $category_data->category->name;
+        foreach ($dataApi as $data) {
+ 
+               if($category !==  null || !$category === $data->category->name )
+               {
+                   $category = $data->category->name;
+                   $arrCategories = [$category];
+               }
 
-            //Si elle n'existe pas on l'ajoute dans la base de donnée
-            if (!self::categoryExist($category_name)) {
-                $req_add = $bdd->prepare("INSERT INTO categories(
-                     name) VALUE (:name)");
-                $req_add->bindParam(':name', $category_name);
-                $req_add->execute();
-
-            }
-            else{
-                echo 'La catégorie existe déjà';
-            }
+               else
+               {
+                
+                   
+               }
+           var_dump($category);
         }
+
+        
     }
 
-    public static function categoryExist(string $category_name)
-    {
-        $bdd = BddConnection::connection();
-        $req = $bdd->prepare("select count(*)  from categories where name= :category_name");
-        $req->bindParam(':category_name', $category_name);
-        $req->execute();
+   public function getCategories()
+   {
+       
+       $req =$this->connection->request('Select * FROM '.$this->t_name.'');
 
-        $resultat = $req->fetch(PDO::FETCH_ASSOC)["count(*)"];
-        return $resultat !== "0";
-    }
+       if(!sizeof($req))
+       {
+           return [];
+       }
 
-    public static function getCategoryIdByName(string $category_name){
-        $bdd = BddConnection::connection();
-        $req = $bdd->prepare("select id from categories where name=:category_name");
-        $req->bindParam(':category_name',  $category_name);
-        $req->execute();
-        return $req->fetch(PDO::FETCH_ASSOC);
-    }
-
-    public static function categoriesName(){
-        $bdd = BddConnection::connection();
-        $req = $bdd->prepare("select name from categories");
-        $req->execute();
-
-        return $req->fetchAll(PDO::FETCH_ASSOC);
-    }
+       return $req;
+   }
 
 }
