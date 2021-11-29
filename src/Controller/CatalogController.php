@@ -27,9 +27,7 @@ $categoryRepository = new CategoryRepository;
 foreach ($datas as $data)
 {
     $book = new Book;
-    $category = new Category;
-    $category->setName($data->category->name);
-    $categoryRepository->save($category);
+    $categoryRepository->saveCategoryToJson();
    /*  $bookRepository = new BookRepository;
     $datePublication = $dateManager->parseDateElementToInt($data->publication);
 
